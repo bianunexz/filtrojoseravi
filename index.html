@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Filtro José Ravi</title>
+    <style>
+        body { margin: 0; padding: 0; overflow: hidden; background-color: #000; }
+        #camera {
+            position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+            object-fit: cover; z-index: 1; transform: scaleX(-1);
+        }
+        #moldura {
+            position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+            object-fit: cover; z-index: 2; pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <video id="camera" autoplay playsinline></video>
+    <img id="moldura" src="moldura.png" alt="Filtro José Ravi">
+
+    <script>
+        const video = document.getElementById('camera');
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } })
+        .then(function(stream) { video.srcObject = stream; })
+        .catch(function(err) {
+            console.error("Erro ao acessar a câmera: ", err);
+            alert("Para usar o filtro, permita o acesso à câmera!");
+        });
+    </script>
+</body>
+</html>
