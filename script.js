@@ -1,5 +1,5 @@
 // Filtro José Ravi - 1 Aninho 🎉
-const API_URL = "https://video-converter-api-production-bb8e.up.railway.app/convert";
+const API_URL = "https://api-video-filtro-production.up.railway.app/convert";
 
 const video = document.getElementById('video');
 const overlay = document.getElementById('overlay');
